@@ -1,27 +1,36 @@
 from tkinter import *
-from tkinter import messagebox
+
+array = [2, 5, 6, 10, 0, 0, 0, 0, 3, 0, 45]
+
+def insert_text():
+    s = array
+    text.insert(1.0, s)
+
+ 
+def get_text():
+    i=0
+    for i in range(len(array)-1): 
+        for index in range(len(array)-1): 
+            if array[index]==0: 
+                array[index+1], array[index]=array[index] ,array[index+1] 
+    s = text.get(1.0, END)
+    label['text'] = array
 
 root = Tk()
-root.title("Сортировка массива")
-root.geometry("300x250")
  
-message = StringVar()
+text = Text(width=25, height=5)
+text.pack()
+ 
+frame = Frame()
+frame.pack()
+Button(frame, text="Заданный массив",
+       command=insert_text).pack(side=LEFT)
+Button(frame, text="Преобразовать",
+       command=get_text).pack(side=LEFT)
 
-message_entry = Entry(textvariable=message)
-message_entry.place(relx=.5, rely=.1, anchor="c")
-
-def masssort():
-    mass = message.get()
-    M = mass.split()
-    i = 0
-    for i in range(len(M)):
-        if M[i] == 0:
-            M = M.append(i)
-            i = i + 1
-        else:
-            i = i + 1
-    messagebox.showinfo("GUI Python", M)
-message_button = Button(text="Измененный массив", command=masssort)
-message_button.place(relx=.5, rely=.5, anchor="c")
-
+ 
+label = Label()
+label.pack()
+ 
 root.mainloop()
+ 
