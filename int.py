@@ -1,6 +1,6 @@
 from tkinter import *
 
-array = [2, 5, 6, 10, 0, 0, 0, 0, 3, 0, 45]
+array = [0,0,0,0,0,6,3,5,0,9,4,0]
 
 def insert_text():
     s = array
@@ -9,6 +9,7 @@ def insert_text():
  
 def get_text():
     i=0
+    array.sort()
     for i in range(len(array)-1): 
         for index in range(len(array)-1): 
             if array[index]==0: 
